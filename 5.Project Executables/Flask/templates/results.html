@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirtualEye-Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        section{
+            
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background: black;
+        }
+
+        .logo {
+            color: white;
+            font-family: cursive;
+            font-size: 1.8rem;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        ul li {
+            margin-left: 40px;
+        }
+
+        li a {
+            font-size: larger;
+            font-weight: bold;
+            color: white;
+            transition: color 0.5s;
+        }
+
+        li a:hover {
+            color: red;
+            border-radius: 20px;
+        }
+
+        button {
+            height: 30px;
+            border-radius: 5px;
+            background: none;
+            color: white;
+            border: 2px solid rgb(197, 69, 195);
+            padding: 5px 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            color: rgb(197, 69, 195);
+            transition: color 0.5s;
+        }
+
+        section{
+            height: 100vh;
+            display: inline-block;
+            align-items: center;
+            justify-content: center;
+            margin-top: 100px;
+            margin-left: 400px;
+        }
+
+        .heading {
+            font-size: 2.7rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        #drowning{
+            width: 450px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+        <nav class="navbar">
+            <h1 class="logo">VirtualEye</h1>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('prediction_page') }}">
+                 Get Started
+                 </a></li>
+            </ul>
+        </nav>
+        <section>
+            {% if result_file.endswith(('.jpg', '.jpeg', '.png')) %}
+    <!-- Display the image if the result is an image -->
+               <img src="{{ result_file }}" alt="Prediction Result" style="max-width: 100%; height: auto;">
+              {% elif result_file.endswith(('.mp4', '.avi', '.mkv')) %}
+               <!-- Display the video if the result is a video -->
+              <video controls style="max-width: 100%; height: auto;">
+                <source src="{{ result_file }}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            {% else %}
+             <p>Unsupported file type</p>
+          {% endif %}
+          {% if drowning_detected %}
+          <div style="color: red; font-size: 30px; font-weight: bold; margin-top: 20px" id="drowning">
+            ⚠ DROWNING DETECTED! ⚠
+          </div>
+          <audio autoplay>
+            <source src="{{ url_for('static', filename='alert/alarm.mp3') }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        {% endif %}
+</section>
+  
+</body>
+</html>

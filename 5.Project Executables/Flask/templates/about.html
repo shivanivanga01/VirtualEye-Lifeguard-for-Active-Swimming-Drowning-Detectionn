@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirtualEye-Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        section{
+            
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            background: black;
+        }
+
+        .logo {
+            color: white;
+            font-family: cursive;
+            font-size: 1.8rem;
+        }
+
+        ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        ul li{
+            margin-left: 40px;
+        }
+
+        li a{
+            font-size: larger;
+            font-weight: bold;
+            color: white;
+            transition: color 0.5s;
+        }
+
+        li a:hover {
+            color: red;
+            border-radius: 20px;
+        }
+
+        .btn{
+            height: 30px;
+            border-radius: 5px;
+            background: none;
+            color: white;
+            border: 2px solid rgb(197, 69, 195);
+            padding: 5px 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            color: rgb(197, 69, 195);
+            transition: color 0.5s;
+        }
+
+        section{
+          font-size: 20px;
+          margin: 30px;
+          padding: 30px;
+          height: 50%;
+          width: 80%;
+          border-radius: 1rem;
+          border: none;
+          box-shadow: 0 0 1rem black;
+          display: flex;
+          justify-content: center;
+          margin-top: 100px;
+          margin-left: 200px;
+        }
+
+        p{
+            text-align: justify;
+        }
+
+        .heading {
+            font-size: 2.7rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+        <nav class="navbar">
+            <h1 class="logo">VirtualEye</h1>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a class="btn" href="{{ url_for('prediction_page') }}">
+                 Get Started
+                 </a></li>
+            </ul>
+        </nav>
+    <section id="about" class="container">
+        <div class="content">
+            <h2>About Underwater Safety System</h2>
+            <br>
+            <p>Swimming is one of the best exercises that helps people reduce stress in urban lifestyles. However, drowning remains a significant risk, especially for children under six, who suffer the highest mortality rates worldwide. To combat this issue, we propose an innovative underwater safety system that utilizes AI to monitor swimmers' movements and detect potential drowning incidents.</p>
+            <br>
+            <p>By employing a single underwater camera connected to an AI system, we can analyze swimmer positions and assess the probability of drowning. If the risk exceeds a certain threshold, an alert will be generated to notify lifeguards. This approach aims to enhance safety in swimming pools, particularly in hotels and tourist spots, where drowning incidents are prevalent.</p>
+        </div>
+        <div class="image-container">
+            <img src="{{url_for('static', filename='/images/image.png')}}" alt="AI Enhanced Swimmer" style="width: 500px; height 500px; margin-left: 50px">
+        </div>
+    </section>
+</body>
+</html>

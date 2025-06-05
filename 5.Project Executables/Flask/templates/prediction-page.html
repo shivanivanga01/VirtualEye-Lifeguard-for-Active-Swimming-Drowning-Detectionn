@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction-page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+        }
+        .navbar {
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+            height: 20px;
+        }
+        .logo {
+            color: white;
+            font-family: cursive;
+            font-size: 1.8rem;
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            margin-left: 40px;
+        }
+        ul li {
+            margin-left: 60px;
+        }
+        li a {
+            font-size: larger;
+            font-weight: bold;
+            color: white;
+            transition: color 0.5s;
+            
+        }
+        li a:hover {
+            color: red;
+            border-radius: 20px;
+        }
+
+        main {
+          margin: 100px;
+          padding: 100px;
+         }
+        section{
+        font-size: 20px;
+        margin: 30px;
+        padding: 30px;
+        height: 30%;
+        width: 80%;
+        border-radius: 1rem;
+        border: none;
+        box-shadow: 0 0 1rem black;
+        display: flex;
+        justify-content: center;
+       }
+      footer {
+     background-color: black;
+     margin-bottom: 0px;
+     color: white;
+     width: 1000px;
+     text-align: center;
+    }
+    input{
+    display: flex;
+    justify-content: center;
+    border-radius: 2px;
+    }
+   button{
+    color: white;
+    background-color: blueviolet;
+    border-radius: 4px;
+    width: 100px;
+   }
+
+</style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">VirtualEye</h1>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <center><h1>PREDICTION PAGE</h1></center>
+        <section class="prediction-page">
+            <form action="/predict" method="POST" enctype="multipart/form-data">
+                <label for="file">Upload an image:</label>
+                <input type="file" name="file" id="file" accept='image/*, video/*'required>
+                <button>Upload</button>
+              </form>              
+        </section>
+    </main>
+</body>
+</html>

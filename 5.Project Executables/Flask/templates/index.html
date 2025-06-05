@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirtualEye-Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        body{
+            background: rgba(0, 0, 0, 0.5) url("{{ url_for('static', filename='/images/swimming-pool.jpg') }}") center/cover no-repeat;
+    background-blend-mode: darken;
+        }
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 40px;
+        }
+        .logo {
+            color: white;
+            font-family: cursive;
+            font-size: 1.8rem;
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        ul li {
+            margin-left: 40px;
+        }
+
+        li a {
+            font-size: larger;
+            font-weight: bold;
+            color: white;
+            transition: color 0.5s;
+        }
+
+        li a:hover {
+            color: red;
+            border-radius: 20px;
+        }
+
+        .btn{
+            height: 30px;
+            border-radius: 5px;
+            background: none;
+            color: white;
+            border: 2px solid rgb(197, 69, 195);
+            padding: 5px 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .btn:hover {
+            color: rgb(197, 69, 195);
+            transition: color 2.0s;
+        }
+        section{
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .heading {
+            font-size: 2.7rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .para p {
+            font-size: 1.2rem;
+            color: aliceblue;
+        }
+        div p{
+            color: white;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">VirtualEye</h1>
+            <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('about') }}">About</a></li>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a class="btn" href="{{ url_for('prediction_page') }}">Get Started</a>
+                    </li>              
+            </ul>
+        </nav>
+    </header>
+    <section>
+        <div class="header">
+            <h1 class="heading">Welcome to the Virtual Eye.</h1>
+            <p>Life guard for active drowning in swimming pools</p>
+        </div>
+    </section>
+</body>
+</html>
